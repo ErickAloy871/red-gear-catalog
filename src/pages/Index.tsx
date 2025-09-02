@@ -1,12 +1,291 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { MachineryCard } from "@/components/MachineryCard";
+import { MachineryFilters } from "@/components/MachineryFilters";
+import { MachineryModal } from "@/components/MachineryModal";
+import { Separator } from "@/components/ui/separator";
+import { ArrowDown, Building2, Shield, Wrench, Phone, Mail, MapPin } from "lucide-react";
+import heroImage from "@/assets/excavator-hero.jpg";
+import craneImage from "@/assets/crane.jpg";
+import bulldozerImage from "@/assets/bulldozer.jpg";
+import forkliftImage from "@/assets/forklift.jpg";
+
+const machineryData = [
+  {
+    id: '1',
+    name: 'Excavadora Hidráulica EX-2000',
+    category: 'Excavadoras',
+    image: heroImage,
+    specs: {
+      power: '200 HP',
+      weight: '20 Ton',
+      capacity: '1.2 m³',
+      engine: 'Diesel Turbo 6L',
+      fuelTank: '400L',
+      dimensions: '9.8 x 3.2 x 3.1 m'
+    },
+    price: 'Desde $180,000',
+    description: 'Excavadora hidráulica de alto rendimiento diseñada para trabajos pesados en construcción y minería. Cuenta con sistema hidráulico avanzado y cabina ergonómica con control de clima.'
+  },
+  {
+    id: '2',
+    name: 'Grúa Torre GT-350',
+    category: 'Grúas',
+    image: craneImage,
+    specs: {
+      power: '150 HP',
+      weight: '35 Ton',
+      capacity: '16 Ton',
+      engine: 'Diesel 4L',
+      fuelTank: '300L',
+      dimensions: '45m altura máx'
+    },
+    price: 'Desde $350,000',
+    description: 'Grúa torre de alta capacidad para proyectos de construcción vertical. Sistema de control computarizado y máxima seguridad operacional.'
+  },
+  {
+    id: '3',
+    name: 'Bulldozer D-850',
+    category: 'Bulldozers',
+    image: bulldozerImage,
+    specs: {
+      power: '320 HP',
+      weight: '28 Ton',
+      capacity: '4.2 m³',
+      engine: 'Diesel V8 Turbo',
+      fuelTank: '500L',
+      dimensions: '8.5 x 4.2 x 3.8 m'
+    },
+    price: 'Desde $250,000',
+    description: 'Bulldozer de alta potencia para movimiento de tierra y nivelación. Cuchilla ajustable y sistema de tracción superior para terrenos difíciles.'
+  },
+  {
+    id: '4',
+    name: 'Montacargas Industrial MCI-5000',
+    category: 'Montacargas',
+    image: forkliftImage,
+    specs: {
+      power: '75 HP',
+      weight: '8 Ton',
+      capacity: '5 Ton',
+      engine: 'Diesel 3L',
+      fuelTank: '120L',
+      dimensions: '4.2 x 2.1 x 2.8 m'
+    },
+    price: 'Desde $65,000',
+    description: 'Montacargas industrial de alta capacidad para almacenes y centros de distribución. Mástil telescópico y sistema de seguridad avanzado.'
+  }
+];
+
+const categories = ['Excavadoras', 'Grúas', 'Bulldozers', 'Montacargas'];
 
 const Index = () => {
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [selectedMachinery, setSelectedMachinery] = useState<typeof machineryData[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const filteredMachinery = activeCategory === 'all' 
+    ? machineryData 
+    : machineryData.filter(machine => machine.category === activeCategory);
+
+  const handleViewDetails = (machinery: typeof machineryData[0]) => {
+    setSelectedMachinery(machinery);
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center bg-gradient-hero text-white overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="absolute inset-0 bg-industrial-black/50" />
+        
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+          <Badge className="mb-6 bg-primary text-primary-foreground text-lg px-4 py-2">
+            Maquinaria Industrial de Calidad
+          </Badge>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            Potencia que 
+            <span className="text-transparent bg-gradient-accent bg-clip-text"> Mueve </span>
+            el Mundo
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
+            Descubre nuestra línea completa de maquinaria industrial de última generación. 
+            Calidad, potencia y confiabilidad para tus proyectos más ambiciosos.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-accent text-primary-foreground text-lg px-8 py-6 shadow-glow transition-all duration-300 hover:scale-105"
+              onClick={() => document.querySelector('#catalog')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Ver Catálogo
+              <ArrowDown className="ml-2 h-5 w-5" />
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="border-2 border-white text-white hover:bg-white hover:text-industrial-black text-lg px-8 py-6 transition-all duration-300"
+            >
+              <Phone className="mr-2 h-5 w-5" />
+              Contactar Ahora
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              ¿Por Qué Elegir Nuestra Maquinaria?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Más de 20 años de experiencia nos respaldan como líderes en maquinaria industrial
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="bg-card border-industrial-gray/20 shadow-card hover:shadow-industrial transition-all duration-300 hover:-translate-y-2">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 mx-auto bg-gradient-accent rounded-full flex items-center justify-center mb-4">
+                  <Building2 className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl text-foreground">Calidad Superior</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-muted-foreground">
+                  Maquinaria fabricada con los más altos estándares de calidad internacional
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-card border-industrial-gray/20 shadow-card hover:shadow-industrial transition-all duration-300 hover:-translate-y-2">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 mx-auto bg-gradient-accent rounded-full flex items-center justify-center mb-4">
+                  <Shield className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl text-foreground">Garantía Extendida</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-muted-foreground">
+                  Garantía completa y servicio técnico especializado las 24/7
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-card border-industrial-gray/20 shadow-card hover:shadow-industrial transition-all duration-300 hover:-translate-y-2">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 mx-auto bg-gradient-accent rounded-full flex items-center justify-center mb-4">
+                  <Wrench className="h-8 w-8 text-white" />
+                </div>
+                <CardTitle className="text-xl text-foreground">Soporte Técnico</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-muted-foreground">
+                  Mantenimiento preventivo y correctivo con técnicos certificados
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Catalog Section */}
+      <section id="catalog" className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Catálogo de Maquinaria
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Explora nuestra amplia gama de equipos industriales
+            </p>
+          </div>
+          
+          <div className="space-y-8">
+            <MachineryFilters
+              categories={categories}
+              activeCategory={activeCategory}
+              onCategoryChange={setActiveCategory}
+              viewMode={viewMode}
+              onViewModeChange={setViewMode}
+            />
+            
+            <div className={`grid gap-6 ${
+              viewMode === 'grid' 
+                ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
+                : 'grid-cols-1'
+            }`}>
+              {filteredMachinery.map((machinery) => (
+                <MachineryCard
+                  key={machinery.id}
+                  name={machinery.name}
+                  category={machinery.category}
+                  image={machinery.image}
+                  specs={{
+                    power: machinery.specs.power,
+                    weight: machinery.specs.weight,
+                    capacity: machinery.specs.capacity
+                  }}
+                  price={machinery.price}
+                  onViewDetails={() => handleViewDetails(machinery)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 bg-gradient-hero text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            ¿Listo para Impulsar tu Proyecto?
+          </h2>
+          <p className="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">
+            Contacta con nuestros especialistas para encontrar la maquinaria perfecta para tus necesidades
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="flex flex-col items-center">
+              <Phone className="h-12 w-12 text-primary mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Teléfono</h3>
+              <p className="text-gray-200">+1 (555) 123-4567</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Mail className="h-12 w-12 text-primary mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Email</h3>
+              <p className="text-gray-200">ventas@maquinariaindustrial.com</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <MapPin className="h-12 w-12 text-primary mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Ubicación</h3>
+              <p className="text-gray-200">Ciudad Industrial, País</p>
+            </div>
+          </div>
+          
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-accent text-primary-foreground text-lg px-8 py-6 shadow-glow transition-all duration-300 hover:scale-105"
+          >
+            Solicitar Cotización Gratuita
+          </Button>
+        </div>
+      </section>
+
+      <MachineryModal
+        machinery={selectedMachinery}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

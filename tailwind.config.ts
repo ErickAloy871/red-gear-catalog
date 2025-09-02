@@ -61,7 +61,26 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Industrial color system
+				industrial: {
+					red: 'hsl(var(--industrial-red))',
+					'red-light': 'hsl(var(--industrial-red-light))',
+					'red-dark': 'hsl(var(--industrial-red-dark))',
+					black: 'hsl(var(--industrial-black))',
+					gray: 'hsl(var(--industrial-gray))',
+					'gray-light': 'hsl(var(--industrial-gray-light))',
 				}
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-card': 'var(--gradient-card)',
+				'gradient-accent': 'var(--gradient-accent)',
+			},
+			boxShadow: {
+				'industrial': 'var(--shadow-industrial)',
+				'card': 'var(--shadow-card)',
+				'glow': 'var(--shadow-glow)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

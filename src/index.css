@@ -8,26 +8,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 65% 25%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 75% 35%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Industrial design tokens */
+    --industrial-red: 0 65% 25%;
+    --industrial-red-light: 0 75% 35%;
+    --industrial-red-dark: 0 55% 20%;
+    --industrial-black: 0 0% 8%;
+    --industrial-gray: 0 0% 25%;
+    --industrial-gray-light: 0 0% 85%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--industrial-black)), hsl(var(--industrial-red-dark)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--industrial-red)), hsl(var(--industrial-red-light)));
+
+    /* Shadows */
+    --shadow-industrial: 0 10px 30px -5px hsl(var(--industrial-black) / 0.3);
+    --shadow-card: 0 4px 20px -2px hsl(var(--industrial-black) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--industrial-red) / 0.3);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
