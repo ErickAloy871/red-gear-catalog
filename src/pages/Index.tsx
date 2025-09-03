@@ -104,27 +104,27 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-hero text-white overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero text-white overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
           style={{ backgroundImage: `url(${FondoImage})` }}
         />
-        <div className="absolute inset-0 bg-industrial-black/50" />
+        <div className="absolute inset-0 bg-industrial-black/70" />
         
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-6 py-20">
           <Badge className="mb-6 bg-primary text-primary-foreground text-lg px-4 py-2">
             Industrial Wiliams
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Eficiencia que 
             <span className="text-transparent bg-gradient-accent bg-clip-text"> Mueve </span>
             el Mundo
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
             Descubre nuestra línea completa de maquinaria industrial de última generación. 
             Calidad, potencia y confiabilidad para tus proyectos más ambiciosos.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
             <Button 
               size="lg" 
               className="bg-primary hover:bg-accent text-primary-foreground text-lg px-8 py-6 shadow-glow transition-all duration-300 hover:scale-105"
@@ -136,7 +136,8 @@ const Index = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-industrial-black text-lg px-8 py-6 transition-all duration-300"
+              className="bg-primary/20 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6 transition-all duration-300 shadow-glow"
+              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Phone className="mr-2 h-5 w-5" />
               Contactar Ahora
@@ -250,7 +251,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gradient-hero text-white">
+      <section id="contact" className="py-20 bg-gradient-hero text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-6">
             ¿Listo para Impulsar tu Proyecto?
