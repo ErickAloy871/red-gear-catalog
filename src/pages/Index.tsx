@@ -8,6 +8,7 @@ import { MachineryModal } from "@/components/MachineryModal";
 import { Separator } from "@/components/ui/separator";
 import { ArrowDown, Building2, Shield, Wrench, Phone, Mail, MapPin } from "lucide-react";
 import heroImage from "@/assets/excavator-hero.jpg";
+import FondoImage from "@/assets/Fondo.png";
 import craneImage from "@/assets/crane.jpg";
 import bulldozerImage from "@/assets/bulldozer.jpg";
 import forkliftImage from "@/assets/forklift.jpg";
@@ -15,8 +16,8 @@ import forkliftImage from "@/assets/forklift.jpg";
 const machineryData = [
   {
     id: '1',
-    name: 'Excavadora Hidráulica EX-2000',
-    category: 'Excavadoras',
+    name: 'Mezcladora Horizontal 1 Ton ',
+    category: 'Mezcladoras',
     image: heroImage,
     specs: {
       power: '200 HP',
@@ -24,15 +25,19 @@ const machineryData = [
       capacity: '1.2 m³',
       engine: 'Diesel Turbo 6L',
       fuelTank: '400L',
-      dimensions: '9.8 x 3.2 x 3.1 m'
+      dimensions: '9.8 x 3.2 x 3.1 m',
+      year: '2024', // Nuevo detalle
+      brand: 'Caterpillar', // Nuevo detalle
+      model: 'MX-1000', // Nuevo detalle
+      certifications: 'ISO 9001, CE' // Nuevo detalle
     },
     price: 'Desde $180,000',
     description: 'Excavadora hidráulica de alto rendimiento diseñada para trabajos pesados en construcción y minería. Cuenta con sistema hidráulico avanzado y cabina ergonómica con control de clima.'
   },
   {
     id: '2',
-    name: 'Grúa Torre GT-350',
-    category: 'Grúas',
+    name: 'Molino 60 quintales por hora',
+    category: 'Molinos',
     image: craneImage,
     specs: {
       power: '150 HP',
@@ -79,7 +84,7 @@ const machineryData = [
   }
 ];
 
-const categories = ['Excavadoras', 'Grúas', 'Bulldozers', 'Montacargas'];
+const categories = ['Mezcladoras', 'Molinos', 'Bulldozers', 'Montacargas'];
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -101,17 +106,17 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-gradient-hero text-white overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+          style={{ backgroundImage: `url(${FondoImage})` }}
         />
         <div className="absolute inset-0 bg-industrial-black/50" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
           <Badge className="mb-6 bg-primary text-primary-foreground text-lg px-4 py-2">
-            Maquinaria Industrial de Calidad
+            Industrial Wiliams
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Potencia que 
+            Eficiencia que 
             <span className="text-transparent bg-gradient-accent bg-clip-text"> Mueve </span>
             el Mundo
           </h1>
