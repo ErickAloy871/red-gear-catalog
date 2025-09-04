@@ -8,8 +8,8 @@ interface MachineryCardProps {
   category: string;
   image: string;
   specs: {
-    power: string;
-    weight: string;
+    Motor: string;
+    PotenciaMotor: string;
     capacity: string;
   };
   price: string;
@@ -41,15 +41,15 @@ export const MachineryCard = ({ name, category, image, specs, price, onViewDetai
         <div className="grid grid-cols-2 gap-2 text-sm">
           <div className="flex items-center gap-1">
             <Settings className="h-4 w-4 text-primary" />
-            <span className="text-muted-foreground">Potencia:</span>
+            <span className="text-muted-foreground">Motor:</span>
           </div>
-          <span className="font-medium">{specs.power}</span>
+          <span className="font-medium">{specs.Motor}</span>
           
           <div className="flex items-center gap-1">
             <Settings className="h-4 w-4 text-primary" />
-            <span className="text-muted-foreground">Peso:</span>
+            <span className="text-muted-foreground">Potencia Motor:</span>
           </div>
-          <span className="font-medium">{specs.weight}</span>
+          <span className="font-medium">{specs.PotenciaMotor}</span>
           
           <div className="flex items-center gap-1">
             <Settings className="h-4 w-4 text-primary" />

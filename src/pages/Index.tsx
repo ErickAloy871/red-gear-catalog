@@ -10,7 +10,7 @@ import { ArrowDown, Building2, Shield, Wrench, Phone, Mail, MapPin } from "lucid
 import heroImage from "@/assets/excavator-hero.jpg";
 import FondoImage from "@/assets/Fondo.png";
 import craneImage from "@/assets/crane.jpg";
-import bulldozerImage from "@/assets/bulldozer.jpg";
+import Molino30 from "@/assets/Molino-30.png";
 import forkliftImage from "@/assets/forklift.jpg";
 
 const machineryData = [
@@ -20,19 +20,13 @@ const machineryData = [
     category: 'Mezcladoras',
     image: heroImage,
     specs: {
-      power: '200 HP',
-      weight: '20 Ton',
-      capacity: '1.2 m³',
-      engine: 'Diesel Turbo 6L',
-      fuelTank: '400L',
-      dimensions: '9.8 x 3.2 x 3.1 m',
-      year: '2024', // Nuevo detalle
-      brand: 'Caterpillar', // Nuevo detalle
-      model: 'MX-1000', // Nuevo detalle
-      certifications: 'ISO 9001, CE' // Nuevo detalle
+      Motor: 'Weg',
+      PotenciaMotor: '15 HP',
+      capacity: '1 Ton',
+      TiempoCiclo: '15 min'
     },
-    price: 'Desde $180,000',
-    description: 'Excavadora hidráulica de alto rendimiento diseñada para trabajos pesados en construcción y minería. Cuenta con sistema hidráulico avanzado y cabina ergonómica con control de clima.'
+    price: 'Desde $7500,00',
+    description: 'Mezcladora horizontal de alta eficienca para ala industria modelo horizontal 1 ton, con motor weg de 15 hp, capacidad de 1 tonelada y tiempo de ciclo de 15 minutos.'
   },
   {
     id: '2',
@@ -52,19 +46,17 @@ const machineryData = [
   },
   {
     id: '3',
-    name: 'Bulldozer D-850',
-    category: 'Bulldozers',
-    image: bulldozerImage,
+    name: 'Molino de 30 Quintales por Hora',
+    category: 'Molinos',
+    image: Molino30,
     specs: {
-      power: '320 HP',
-      weight: '28 Ton',
-      capacity: '4.2 m³',
-      engine: 'Diesel V8 Turbo',
-      fuelTank: '500L',
-      dimensions: '8.5 x 4.2 x 3.8 m'
+      Motor: 'Weg',
+      PotenciaMotor: '5 HP',
+      capacity: '30 Quintales',
+      TiempoCiclo: '1 Hora'
     },
-    price: 'Desde $250,000',
-    description: 'Bulldozer de alta potencia para movimiento de tierra y nivelación. Cuchilla ajustable y sistema de tracción superior para terrenos difíciles.'
+    price: 'Desde $2000,00',
+    description: 'Molino de alta eficiencia para la industria, modelo de martillos, con motor weg de 5 hp, capacidad de 30 quintales por hora.'
   },
   {
     id: '4',
@@ -121,7 +113,7 @@ const Index = () => {
             el Mundo
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Descubre nuestra línea completa de maquinaria industrial de última generación. 
+            Descubre nuestra línea completa de maquinaria industrial.
             Calidad, potencia y confiabilidad para tus proyectos más ambiciosos.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
@@ -154,7 +146,7 @@ const Index = () => {
               ¿Por Qué Elegir Nuestra Maquinaria?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Más de 20 años de experiencia nos respaldan como líderes en maquinaria industrial
+              Más de 25 años de experiencia nos respaldan como líderes en maquinaria industrial
             </p>
           </div>
           
@@ -182,7 +174,7 @@ const Index = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
-                  Garantía completa y servicio técnico especializado las 24/7
+                  Garantía de 3 años y servicio técnico especializado.
                 </p>
               </CardContent>
             </Card>
@@ -196,7 +188,7 @@ const Index = () => {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground">
-                  Mantenimiento preventivo y correctivo con técnicos certificados
+                  Mantenimiento preventivo y correctivo.
                 </p>
               </CardContent>
             </Card>
@@ -257,24 +249,19 @@ const Index = () => {
             ¿Listo para Impulsar tu Proyecto?
           </h2>
           <p className="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">
-            Contacta con nuestros especialistas para encontrar la maquinaria perfecta para tus necesidades
+            Contáctanos para encontrar la maquinaria perfecta para tus necesidades
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 place-items-center">
             <div className="flex flex-col items-center">
               <Phone className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Teléfono</h3>
-              <p className="text-gray-200">+1 (555) 123-4567</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <Mail className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Email</h3>
-              <p className="text-gray-200">ventas@maquinariaindustrial.com</p>
+              <p className="text-gray-200">0984789555-0984647317</p>
             </div>
             <div className="flex flex-col items-center">
               <MapPin className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Ubicación</h3>
-              <p className="text-gray-200">Ciudad Industrial, País</p>
+              <p className="text-gray-200">Ambato, Ecuador</p>
             </div>
           </div>
           
