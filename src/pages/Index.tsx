@@ -34,15 +34,13 @@ const machineryData = [
     category: 'Molinos',
     image: craneImage,
     specs: {
-      power: '150 HP',
-      weight: '35 Ton',
-      capacity: '16 Ton',
-      engine: 'Diesel 4L',
-      fuelTank: '300L',
-      dimensions: '45m altura máx'
+      Motor: 'Diesel 4L',
+      PotenciaMotor: '150 HP',
+      capacity: '60 Quintales',
+      TiempoCiclo: '1 Hora'
     },
-    price: 'Desde $350,000',
-    description: 'Grúa torre de alta capacidad para proyectos de construcción vertical. Sistema de control computarizado y máxima seguridad operacional.'
+    price: 'Desde $8500,00',
+    description: 'Molino de alta capacidad para molienda industrial. Sistema robusto con motor diesel de 150 HP para procesamiento continuo.'
   },
   {
     id: '3',
@@ -64,12 +62,10 @@ const machineryData = [
     category: 'Montacargas',
     image: forkliftImage,
     specs: {
-      power: '75 HP',
-      weight: '8 Ton',
+      Motor: 'Diesel 3L',
+      PotenciaMotor: '75 HP',
       capacity: '5 Ton',
-      engine: 'Diesel 3L',
-      fuelTank: '120L',
-      dimensions: '4.2 x 2.1 x 2.8 m'
+      TiempoCiclo: '8 horas'
     },
     price: 'Desde $65,000',
     description: 'Montacargas industrial de alta capacidad para almacenes y centros de distribución. Mástil telescópico y sistema de seguridad avanzado.'
@@ -229,8 +225,8 @@ const Index = () => {
                   category={machinery.category}
                   image={machinery.image}
                   specs={{
-                    power: machinery.specs.power,
-                    weight: machinery.specs.weight,
+                    Motor: machinery.specs.Motor,
+                    PotenciaMotor: machinery.specs.PotenciaMotor,
                     capacity: machinery.specs.capacity
                   }}
                   price={machinery.price}
