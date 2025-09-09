@@ -117,11 +117,7 @@ export const MachineryModal = ({ machinery, isOpen, onClose }: MachineryModalPro
                 <h4 className="font-semibold text-foreground">Contacto Directo</h4>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4" />
-                  <span>+1 (555) 123-4567</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Mail className="h-4 w-4" />
-                  <span>ventas@maquinariaindustrial.com</span>
+                  <span>+593 0984789555 - 0984647317</span>
                 </div>
               </div>
             </div>
