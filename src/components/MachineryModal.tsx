@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Phone, Mail, MapPin, Download } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 interface Machinery {
   id: string;
@@ -50,11 +51,25 @@ export const MachineryModal = ({ machinery, isOpen, onClose }: MachineryModalPro
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="space-y-4">
             <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src={machinery.images[0]} 
-                alt={machinery.name}
-                className="w-full h-64 object-cover"
-              />
+              <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+                <CarouselContent>
+                  {machinery.images.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <img 
+                        src={image} 
+                        alt={`${machinery.name} - Imagen ${index + 1}`}
+                        className="w-full h-64 object-cover"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                {machinery.images.length > 1 && (
+                  <>
+                    <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background" />
+                    <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background" />
+                  </>
+                )}
+              </Carousel>
             </div>
             
             <div className="bg-muted/50 p-4 rounded-lg">

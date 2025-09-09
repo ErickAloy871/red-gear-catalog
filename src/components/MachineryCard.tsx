@@ -21,7 +21,7 @@ export const MachineryCard = ({ name, category, images, specs, price, onViewDeta
   return (
     <Card className="bg-gradient-card border-industrial-gray/20 hover:shadow-industrial transition-all duration-300 hover:scale-105 group">
       <div className="relative overflow-hidden rounded-t-lg">
-        <Carousel className="w-full">
+        <Carousel className="w-full" opts={{ align: "start", loop: true }}>
           <CarouselContent>
             {images.map((image, index) => (
               <CarouselItem key={index}>
@@ -33,8 +33,12 @@ export const MachineryCard = ({ name, category, images, specs, price, onViewDeta
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {images.length > 1 && (
+            <>
+              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background transition-all duration-300 h-8 w-8" />
+              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background transition-all duration-300 h-8 w-8" />
+            </>
+          )}
         </Carousel>
         <div className="absolute inset-0 bg-gradient-to-t from-industrial-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <Badge className="absolute top-3 left-3 bg-primary text-primary-foreground z-10">
