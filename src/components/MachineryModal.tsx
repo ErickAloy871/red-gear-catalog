@@ -13,7 +13,7 @@ interface Machinery {
   id: string;
   name: string;
   category: string;
-  image: string;
+  images: string[];
   specs: {
     Motor: string;
     PotenciaMotor: string;
@@ -51,7 +51,7 @@ export const MachineryModal = ({ machinery, isOpen, onClose }: MachineryModalPro
           <div className="space-y-4">
             <div className="relative overflow-hidden rounded-lg">
               <img 
-                src={machinery.image} 
+                src={machinery.images[0]} 
                 alt={machinery.name}
                 className="w-full h-64 object-cover"
               />
