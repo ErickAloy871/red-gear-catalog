@@ -8,6 +8,7 @@ import { MachineryModal } from "@/components/MachineryModal";
 import { Separator } from "@/components/ui/separator";
 import { ArrowDown, Building2, Shield, Wrench, Phone, Mail, MapPin } from "lucide-react";
 import heroImage from "@/assets/excavator-hero.jpg";
+import Mezcladora1Tn from "@/assets/Mezcladora-1tn.png";
 import FondoImage from "@/assets/Fondo.png";
 import craneImage from "@/assets/crane.jpg";
 import Molino30 from "@/assets/Molino-30.png";
@@ -19,7 +20,7 @@ const machineryData = [
     id: '1',
     name: 'Mezcladora Horizontal 1 Ton ',
     category: 'Mezcladoras',
-    images: [heroImage, bulldozerImage, craneImage],
+    images: [Mezcladora1Tn, heroImage, bulldozerImage, craneImage],
     specs: {
       Motor: 'Weg',
       PotenciaMotor: '15 HP',
