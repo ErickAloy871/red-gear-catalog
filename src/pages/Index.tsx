@@ -11,6 +11,7 @@ import heroImage from "@/assets/excavator-hero.jpg";
 import FondoImage from "@/assets/Fondo.png";
 import craneImage from "@/assets/crane.jpg";
 import Molino30 from "@/assets/Molino-30.png";
+import bulldozerImage from "@/assets/bulldozer.jpg";
 import forkliftImage from "@/assets/forklift.jpg";
 
 const machineryData = [
@@ -18,7 +19,7 @@ const machineryData = [
     id: '1',
     name: 'Mezcladora Horizontal 1 Ton ',
     category: 'Mezcladoras',
-    image: heroImage,
+    images: [heroImage, bulldozerImage, craneImage],
     specs: {
       Motor: 'Weg',
       PotenciaMotor: '15 HP',
@@ -32,7 +33,7 @@ const machineryData = [
     id: '2',
     name: 'Molino 60 quintales por hora',
     category: 'Molinos',
-    image: craneImage,
+    images: [craneImage, heroImage, forkliftImage],
     specs: {
       Motor: 'Diesel 4L',
       PotenciaMotor: '150 HP',
@@ -46,7 +47,7 @@ const machineryData = [
     id: '3',
     name: 'Molino de 30 Quintales por Hora',
     category: 'Molinos',
-    image: Molino30,
+    images: [Molino30, craneImage, bulldozerImage],
     specs: {
       Motor: 'Weg',
       PotenciaMotor: '5 HP',
@@ -60,7 +61,7 @@ const machineryData = [
     id: '4',
     name: 'Montacargas Industrial MCI-5000',
     category: 'Montacargas',
-    image: forkliftImage,
+    images: [forkliftImage, Molino30, heroImage],
     specs: {
       Motor: 'Diesel 3L',
       PotenciaMotor: '75 HP',
@@ -223,7 +224,7 @@ const Index = () => {
                   key={machinery.id}
                   name={machinery.name}
                   category={machinery.category}
-                  image={machinery.image}
+                  images={machinery.images}
                   specs={{
                     Motor: machinery.specs.Motor,
                     PotenciaMotor: machinery.specs.PotenciaMotor,
