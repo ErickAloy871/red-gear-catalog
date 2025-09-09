@@ -8,7 +8,7 @@ import { MachineryModal } from "@/components/MachineryModal";
 import { Separator } from "@/components/ui/separator";
 import { ArrowDown, Building2, Shield, Wrench, Phone, Mail, MapPin } from "lucide-react";
 import heroImage from "@/assets/excavator-hero.jpg";
-import Mezcladora1Tn from "@/assets/Mezcladora-1tn.png";
+import Mezcladora1Tn from "@/assets/Mezcladora-1Tn.png";
 import FondoImage from "@/assets/Fondo.png";
 import craneImage from "@/assets/crane.jpg";
 import Molino30 from "@/assets/Molino-30.png";
