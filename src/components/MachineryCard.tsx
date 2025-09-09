@@ -35,8 +35,8 @@ export const MachineryCard = ({ name, category, images, specs, price, onViewDeta
           </CarouselContent>
           {images.length > 1 && (
             <>
-              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background transition-all duration-300 h-8 w-8" />
-              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background transition-all duration-300 h-8 w-8" />
+              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black shadow-lg z-20 h-8 w-8 border-0" />
+              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black shadow-lg z-20 h-8 w-8 border-0" />
             </>
           )}
         </Carousel>
